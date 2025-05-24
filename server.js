@@ -91,5 +91,5 @@ app.get("/projects", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`✅ Proxy server running at http://localhost:${PORT}`);
+  console.log(`✅ Proxy server running at ${PORT}`);
 });
