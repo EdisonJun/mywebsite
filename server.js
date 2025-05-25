@@ -6,7 +6,7 @@ const path = require("path");
 const app = express();
 const PORT = 4000;
 
-const strapi_api = "https://wonderful-happiness-d64b2f25c1.strapiapp.com/";
+const strapi_api = "https://wonderful-happiness-d64b2f25c1.strapiapp.com";
 
 // Token 请勿前端暴露，仅服务端使用
 const Token =
@@ -19,7 +19,7 @@ app.use("/uploads", express.static(path.join(__dirname, "../public/uploads")));
 // 获取技能列表
 app.get("/skills", async (req, res) => {
   try {
-    const response = await fetch(strapi_api + "/api/skills?populate=image", {
+    const response = await fetch(strapi_api + "api/skills?populate=image", {
       headers: {
         Authorization: `Bearer ${Token}`,
       },
@@ -41,7 +41,7 @@ app.get("/skills", async (req, res) => {
 // 获取文章列表
 app.get("/articles", async (req, res) => {
   try {
-    const response = await fetch(strapi_api + "/api/articles", {
+    const response = await fetch(strapi_api + "api/articles", {
       headers: {
         Authorization: `Bearer ${Token}`,
       },
@@ -64,7 +64,7 @@ app.get("/articles", async (req, res) => {
 app.get("/projects", async (req, res) => {
   try {
     const response = await fetch(
-      strapi_api + "/api/projects?sort=publishedAt:desc&populate=*",
+      strapi_api + "api/projects?sort=publishedAt:desc&populate=*",
       {
         headers: {
           Authorization: `Bearer ${Token}`,
